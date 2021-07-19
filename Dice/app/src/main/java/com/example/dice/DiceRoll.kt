@@ -1,12 +1,12 @@
 package com.example.dice
 
 fun main(){
-    val myFirstDice = Dice()
+    val myFirstDice = DiceRoll()
 //    println(myFirstDice.sides)
     val diceRoll = myFirstDice.roll()
     println("Your ${myFirstDice.sides} sided dice rolled ${diceRoll}!")
 }
-class Dice {
+class DiceRoll {
     var sides = 6
 
     fun roll(): Int{
