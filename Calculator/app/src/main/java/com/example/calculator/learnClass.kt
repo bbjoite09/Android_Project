@@ -4,9 +4,9 @@ fun main() {
     val squareCabin = SquareCabin(6)
     with(squareCabin) {
         println("\nSquare Cabin\n============")
-        println("Capacity: ${squareCabin.capacity}")
-        println("Material: ${squareCabin.buildingMaterial}")
-        println("Has room? ${squareCabin.hasRoom()}")
+        println("Capacity: ${capacity}")
+        println("Material: ${buildingMaterial}")
+        println("Has room? ${hasRoom()}")
     }
 }
 
