@@ -2,7 +2,12 @@ package com.example.calculator
 
 fun main() {
     val squareCabin = SquareCabin(6)
-
+    with(squareCabin) {
+        println("\nSquare Cabin\n============")
+        println("Capacity: ${squareCabin.capacity}")
+        println("Material: ${squareCabin.buildingMaterial}")
+        println("Has room? ${squareCabin.hasRoom()}")
+    }
 }
 
 abstract class Dwelling(private var residents: Int) {
