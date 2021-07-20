@@ -1,6 +1,7 @@
 package com.example.calculator
 
 import kotlin.math.PI
+import kotlin.math.sqrt
 
 fun main() {
     val squareCabin = SquareCabin(6, 50.0)
@@ -24,6 +25,8 @@ fun main() {
         getRoom()
         println("Has room? ${hasRoom()}")
         getRoom()
+
+        println("Carpet size: ${calculateMaxCarpetSize()}")
     }
 
     val roundTower = RoundTower(4, 15.5, 2)
@@ -33,6 +36,8 @@ fun main() {
         println("Capacity: ${capacity}")
         println("Has room? ${hasRoom()}")
         println("Floor area: ${floorArea()}")
+
+        println("Carpet size: ${calculateMaxCarpetSize()}")
     }
 }
 
@@ -71,6 +76,11 @@ open class RoundHut(residents: Int, val radius: Double) : Dwelling(residents) {
 
     override fun floorArea(): Double {
         return PI * radius * radius
+    }
+
+    fun calculateMaxCarpetSize():Double{
+        val diameter = 2 * radius
+        return sqrt(diameter * diameter / 2)
     }
 }
 
