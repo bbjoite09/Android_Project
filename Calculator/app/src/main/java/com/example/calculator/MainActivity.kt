@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         val stringInTextField = binding.costOfService.text.toString()
 
         val cost = stringInTextField.toDoubleOrNull()
-        if(cost == null){
+        if (cost == null) {
+            binding.result.text = ""
             return
         }
 
