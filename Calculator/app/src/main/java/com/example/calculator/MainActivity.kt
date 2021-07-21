@@ -6,7 +6,7 @@ import com.example.calculator.databinding.ActivityMainBinding
 import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         binding.calculateButton.setOnClickListener { calculateTip() }
     }
 
-    fun calculateTip() {
+    private fun calculateTip() {
         val stringInTextField = binding.costOfService.text.toString()
 
         val cost = stringInTextField.toDoubleOrNull()
@@ -25,9 +25,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val selectdId = binding.tipOption.checkedRadioButtonId
-
-        val tipPercentage = when (selectdId) {
+        val tipPercentage = when (binding.tipOption.checkedRadioButtonId) {
             R.id.option_twenty_percent -> 0.20
             R.id.option_eighteen_percent -> 0.18
             else -> 0.15
@@ -37,8 +35,7 @@ class MainActivity : AppCompatActivity() {
         var tip = tipPercentage * cost
 
         // 반올림
-        val roundUp = binding.roundSwitch.isChecked
-        if (roundUp) {
+        if (binding.roundSwitch.isChecked) {
             tip = kotlin.math.ceil(tip)
         }
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
