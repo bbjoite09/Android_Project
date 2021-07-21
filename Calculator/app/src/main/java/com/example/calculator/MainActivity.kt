@@ -3,6 +3,7 @@ package com.example.calculator
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.calculator.databinding.ActivityMainBinding
+import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -36,4 +37,6 @@ class MainActivity : AppCompatActivity() {
             tip = kotlin.math.ceil(tip)
         }
     }
+    val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
+
 }
