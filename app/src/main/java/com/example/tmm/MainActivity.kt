@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
 
         for(i in 1..10){
-            myStationList.add(DataMyStation(getDrawable(R.drawable.line3_checked)!!, "경복궁"))
+            myStationList.add(DataMyStation(getDrawable(R.drawable.mystation_3)!!, "경복궁"))
         }
 
         val myStationAdapter = RecyclerAdapterMyStation(myStationList)
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         val dangerLen: Int = 9
         for(i: Int in 1..dangerLen){
-            dangerList.add(DataDangerLine(getDrawable(R.drawable.line1_checked),"${i}호선"))
+            dangerList.add(DataDangerLine(getDrawable(R.drawable.line_1_select),"${i}호선"))
         }
 
         recyclerView.setHasFixedSize(true)

@@ -9,26 +9,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.danger_item.view.*
 
-class RecyclerAdapterDanger(private val items: ArrayList<DataDangerLine>) :
-    RecyclerView.Adapter<RecyclerAdapterDanger.ViewHolder>() {
-
-//    val context = context
-//    var data = mutableListOf<DataDangerLine>()
-//
-//    inner class DangerHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-//        fun setData(data: DataDangerLine){
-//            itemView.xml_line_name.text = data.lineName
-//
-//            val RecyclerAdapterDangerSub = RecyclerAdapterDangerSub()
-//            val dangerSubData = data.itemList
-//            RecyclerAdapterDangerSub.data = dangerSubData
-//
-////            itemView.xml_danger_sub.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-//
-//            itemView.xml_danger_sub.adapter = RecyclerAdapterDangerSub
-//            RecyclerAdapterDangerSub.notifyDataSetChanged()
-//        }
-//    }
+class RecyclerAdapterDanger_temp(private val items: ArrayList<DataDangerLine>) :
+    RecyclerView.Adapter<RecyclerAdapterDanger_temp.ViewHolder>() {
 
     override fun getItemCount(): Int = items.size
 
@@ -62,8 +44,24 @@ class RecyclerAdapterDanger(private val items: ArrayList<DataDangerLine>) :
             val moreInfo = view.findViewById<ImageButton>(R.id.img_more)
             val layoutExpand = view.findViewById<LinearLayout>(R.id.expand_recyclerView)
 
-
+            moreInfo.setOnClickListener {
+                val show = toggleLayout(!item.isExpanded, it, layoutExpand)
+                item.isExpanded = show
+            }
 
         }
+
+        private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout): Boolean {
+            // 2
+            ToggleAnimation.toggleArrow(view, isExpanded)
+            if (isExpanded) {
+                ToggleAnimation.expand(layoutExpand)
+            } else {
+                ToggleAnimation.collapse(layoutExpand)
+            }
+            return isExpanded
+        }
+
+
     }
 }

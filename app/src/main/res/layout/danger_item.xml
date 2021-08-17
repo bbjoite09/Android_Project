@@ -21,7 +21,7 @@
             android:layout_height="22dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="10dp"
-            android:src="@drawable/line1_checked" />
+            android:src="@drawable/line_1_select" />
 
         <TextView
             android:id="@+id/xml_line_name"
