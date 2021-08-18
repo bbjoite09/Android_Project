@@ -7,7 +7,6 @@ import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -50,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 이전 버튼 동작 추가가
-        back_btn.setOnClickListener{
+        back_btn_main.setOnClickListener{
 //            super.onBackPressed()
             setFrag(0)
         }

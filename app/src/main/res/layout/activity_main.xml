@@ -70,7 +70,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editText" />
 
         <ImageView
-            android:id="@+id/back_btn"
+            android:id="@+id/back_btn_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
