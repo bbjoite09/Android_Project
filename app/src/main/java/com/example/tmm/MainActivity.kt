@@ -1,13 +1,13 @@
 package com.example.tmm
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,58 +18,52 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setFrag(0)
-
-        searchButton.setOnClickListener{
-            setFrag(1)
-        }
-        //---------------------------------------------------------------------------------------------------
         // 내 호선 recyclerView
-//        val myStationList = ArrayList<DataMyStation>()
-//
-//
-//        for(i in 1..10){
-//            myStationList.add(DataMyStation(getDrawable(R.drawable.mystation_3)!!, "경복궁"))
-//        }
-//
-//        val myStationAdapter = RecyclerAdapterMyStation(myStationList)
-//        my_station_list.adapter = myStationAdapter
-//
-//
-//        // 틈 정보 페이지 이동
-//        info_button.setOnClickListener{
-//            val intentInfo = Intent(this, TmmInfoActivity::class.java)
-//            startActivity(intentInfo)
-//        }
-//
-//        //---------------------------------------------------------------------------------------------------
-//        // 단차 위험 호선 recyclerView
-//        val dangerList = ArrayList<DataDangerLine>()
-//        var adapter2: RecyclerAdapterDanger
-//        val recyclerView = findViewById<RecyclerView>(R.id.danger_line_list)
-//
-//        val dangerLen: Int = 9
-//        for(i: Int in 1..dangerLen){
-//            dangerList.add(DataDangerLine(getDrawable(R.drawable.line_1_select),"${i}호선"))
-//        }
-//
-//        recyclerView.setHasFixedSize(true)
-//        recyclerView.layoutManager = LinearLayoutManager(this)
-//        adapter2 = RecyclerAdapterDanger(dangerList)
-//        recyclerView.adapter = adapter2
-//
-//
-//        val dangerAdapter = RecyclerAdapterDanger(dangerList)
-//        danger_line_list.adapter = dangerAdapter
+        val myStationList = ArrayList<DataMyStation>()
+        for (i in 1..10) {
+            myStationList.add(DataMyStation(getDrawable(R.drawable.mystation_3)!!, "경복궁"))
+        }
 
+        // 단차 위험 호선 recyclerView
+        val dangerList = ArrayList<DataDangerLine>()
+
+        val dangerLen: Int = 9
+        for (i: Int in 1..dangerLen) {
+            dangerList.add(DataDangerLine(getDrawable(R.drawable.line_1_select), "${i}호선"))
+        }
+
+
+        // 기본 화면 메인 프레그먼트 지정
+        setFrag(0)
+        intent.putExtra("MyStationList", myStationList)
+        intent.putExtra("DangerList", dangerList)
+
+
+        // edit text 클릭 시 검색 Fragment 이동
+        editText.setOnTouchListener { _: View, event: MotionEvent ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    setFrag(1)
+                }
+            }
+            true
+        }
+
+        // 이전 버튼 동작 추가가
+        back_btn.setOnClickListener{
+//            super.onBackPressed()
+            setFrag(0)
+        }
     }
-
     private fun setFrag(fragNum: Int) {
         val ft = supportFragmentManager.beginTransaction()
-
-        when(fragNum){
-            0 -> {ft.replace(R.id.main_frame, MainFragment()).commit()}
-            1 -> {ft.replace(R.id.main_frame, SearchFragment()).commit()}
+        when (fragNum) {
+            0 -> {
+                ft.replace(R.id.main_frame, MainFragment()).commit()
+            }
+            1 -> {
+                ft.replace(R.id.main_frame, SearchFragment()).commit()
+            }
         }
     }
 }
