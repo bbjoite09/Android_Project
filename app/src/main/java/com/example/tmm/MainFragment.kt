@@ -23,8 +23,6 @@ class MainFragment: Fragment() {
 //            }
 //        });
 
-
-
         return view
     }
 

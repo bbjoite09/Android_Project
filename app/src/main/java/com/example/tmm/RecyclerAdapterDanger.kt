@@ -55,7 +55,25 @@ class RecyclerAdapterDanger(private val context: Context, private val items: Arr
             s.layoutManager = layoutmanager
             s.setHasFixedSize(true)
 
+            val moreInfo = view.findViewById<ImageButton>(R.id.img_more)
+            val layoutExpand = view.findViewById<LinearLayout>(R.id.expand_recyclerView)
 
+            moreInfo.setOnClickListener {
+                val show = toggleLayout(!item.isExpanded, it, layoutExpand)
+                item.isExpanded = show
+            }
+
+        }
+
+        private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout): Boolean {
+            // 2
+            ToggleAnimation.toggleArrow(view, isExpanded)
+            if (isExpanded) {
+                ToggleAnimation.expand(layoutExpand)
+            } else {
+                ToggleAnimation.collapse(layoutExpand)
+            }
+            return isExpanded
         }
     }
 }

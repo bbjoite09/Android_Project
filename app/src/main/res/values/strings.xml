@@ -8,5 +8,7 @@
     <string name="line_img">line$i_checked</string>
     <string name="danger_station_name">서울역</string>
     <string name="my_station_name">합정역</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
