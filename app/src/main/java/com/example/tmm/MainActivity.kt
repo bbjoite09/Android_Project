@@ -4,6 +4,8 @@ import android.os.Build
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 //        navController = nav_host_fragment.findNavController()
 
         // db
+        val TempList = arrayOf("seoul", "guro", "onsu", "shinchon", "seoulnational")
+
 
         // 내 호선 recyclerView
         val myStationList = ArrayList<DataMyStation>()
@@ -52,6 +56,27 @@ class MainActivity : AppCompatActivity() {
             searchView.onActionViewExpanded()
             setFrag(1)
         }
+
+        searchView.setOnQueryTextListener(object:SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+
+            // 검색 완료(엔터) 눌렀을 때
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                println(p0 + " Finished")
+                return true
+            }
+
+            // 검색 중
+            override fun onQueryTextChange(p0: String?): Boolean {
+                if(p0 != ""){
+                    val curList = TempList.filter { x -> x.toLowerCase().contains(p0?.toLowerCase().toString()) }
+                    for(i in curList) println(i)
+                    println("----------------")
+                }
+
+                return true
+            }
+        })
 
 
         // 이전 버튼 동작 추가가
