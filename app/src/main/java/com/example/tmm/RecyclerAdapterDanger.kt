@@ -35,9 +35,6 @@ class RecyclerAdapterDanger(private val context: Context, private val items: Arr
         val inflatedView1 =
             LayoutInflater.from(context).inflate(R.layout.danger_item, parent, false)
 
-        val inflatedView2 =
-            LayoutInflater.from(context).inflate(R.layout.danger_sub_item, parent, false)
-
         return ViewHolder(inflatedView1)
     }
 
@@ -52,17 +49,13 @@ class RecyclerAdapterDanger(private val context: Context, private val items: Arr
 
 
             val s = itemView?.findViewById<RecyclerView>(R.id.xml_danger_sub)
-
             val mAdapter = RecyclerAdapterDangerSub(context, item.dangerSub)
             s.adapter = mAdapter
-
             val layoutmanager = LinearLayoutManager(context)
             s.layoutManager = layoutmanager
             s.setHasFixedSize(true)
 
 
-            val moreInfo = view.findViewById<ImageButton>(R.id.img_more)
-            val layoutExpand = view.findViewById<LinearLayout>(R.id.expand_recyclerView)
         }
     }
 }
