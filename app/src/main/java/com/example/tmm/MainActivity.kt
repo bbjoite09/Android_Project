@@ -25,10 +25,15 @@ class MainActivity : AppCompatActivity() {
 
         // 단차 위험 호선 recyclerView
         val dangerList = ArrayList<DataDangerLine>()
+        val dangerSubList = ArrayList<DataDangerSub>()
+
+        for (i: Int in 1..5){
+            dangerSubList.add(DataDangerSub("영등포역"))
+        }
 
         val dangerLen: Int = 9
         for (i: Int in 1..dangerLen) {
-            dangerList.add(DataDangerLine(getDrawable(R.drawable.line_1_select), "${i}호선"))
+            dangerList.add(DataDangerLine(getDrawable(R.drawable.line_1_select), "${i}호선", dangerSubList))
         }
 
 

@@ -3,14 +3,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="1dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
         android:padding="8dp">
@@ -19,7 +20,7 @@
             android:id="@+id/xml_line_img"
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/line_1_select" />
 
@@ -48,24 +49,22 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/expand_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="bottom"
+        android:gravity="top"
         android:orientation="vertical"
-
         android:padding="5dp">
 <!--        android:visibility="gone"-->
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/xml_danger_sub"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_gravity="center|top"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/danger_sub_item" />

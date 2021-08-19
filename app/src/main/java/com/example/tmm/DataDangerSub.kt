@@ -1,5 +1,5 @@
 package com.example.tmm
 
-open class DataDangerSub(val mySubName:String) {
+open class DataDangerSub(val allSubName:String) {
 
 }

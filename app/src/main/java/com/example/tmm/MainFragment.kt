@@ -1,14 +1,11 @@
 package com.example.tmm
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_main.*
 
@@ -19,6 +16,15 @@ class MainFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
+
+//        info_button.setOnClickListener(object :View.OnClickListener{
+//            override fun onClick(p0: View?) {
+//                startActivity(Intent(activity, TmmInfoActivity::class.java))
+//            }
+//        });
+
+
+
         return view
     }
 
@@ -39,7 +45,7 @@ class MainFragment: Fragment() {
         //dangerList 리사이클러뷰
         val dangerList: ArrayList<DataDangerLine> = requireActivity().intent!!.extras!!.get("DangerList") as ArrayList<DataDangerLine>
 
-        dangerListAdapter = RecyclerAdapterDanger(dangerList)
+        dangerListAdapter = RecyclerAdapterDanger(requireActivity(), dangerList) // requireActivity() -> activity!!
 
         danger_line_list.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         danger_line_list.adapter = dangerListAdapter
