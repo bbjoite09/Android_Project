@@ -12,7 +12,7 @@
         android:layout_height="19dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="263dp"
         android:layout_marginBottom="5dp"
         android:text="@string/frequently_station"
@@ -29,7 +29,6 @@
         android:id="@+id/my_station_list"
         android:layout_width="match_parent"
         android:layout_height="79dp"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -40,7 +39,7 @@
 
     <View
         android:id="@+id/divider2"
-        android:layout_width="320dp"
+        android:layout_width="380dp"
         android:layout_height="1dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -56,18 +55,19 @@
         android:id="@+id/info_button"
         android:layout_width="320dp"
         android:layout_height="117dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
         android:contentDescription="tmm_info"
         android:src="@drawable/info_button"
         app:layout_constraintBottom_toTopOf="@+id/divider3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
     <View
         android:id="@+id/divider3"
-        android:layout_width="320dp"
+        android:layout_width="380dp"
         android:layout_height="1dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
@@ -82,7 +82,7 @@
         android:id="@+id/textView2"
         android:layout_width="100dp"
         android:layout_height="19dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
         android:text="@string/danger_line"
         android:textColor="#000000"
@@ -99,19 +99,19 @@
 <!--            android:orientation="vertical"-->
 <!--            app:layout_constraintTop_toBottomOf="@id/textView2">-->
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/danger_line_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/danger_line_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:listitem="@layout/danger_item" />
-<!--        </LinearLayout>-->
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:listitem="@layout/danger_item" />
+    <!--        </LinearLayout>-->
 
 
 <!--android:layout_marginTop="20dp"-->

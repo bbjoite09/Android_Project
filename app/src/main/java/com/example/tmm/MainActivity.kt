@@ -10,12 +10,16 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-
+//    lateinit var navController: NavController
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        navController = nav_host_fragment.findNavController()
+
+        // db
 
         // 내 호선 recyclerView
         val myStationList = ArrayList<DataMyStation>()
@@ -42,16 +46,13 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("MyStationList", myStationList)
         intent.putExtra("DangerList", dangerList)
 
-
-        // edit text 클릭 시 검색 Fragment 이동
-        editText.setOnTouchListener { _: View, event: MotionEvent ->
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    setFrag(1)
-                }
-            }
-            true
+        // searchView fragment 지정
+        searchView.setOnClickListener{
+            // searchView 아무데나 클릭해도 동작하게
+            searchView.onActionViewExpanded()
+            setFrag(1)
         }
+
 
         // 이전 버튼 동작 추가가
         back_btn_main.setOnClickListener{

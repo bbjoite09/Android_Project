@@ -19,7 +19,7 @@
             android:id="@+id/xml_line_img"
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/line_1_select" />
 
@@ -42,7 +42,7 @@
             android:id="@+id/img_more"
             android:layout_width="23dp"
             android:layout_height="23dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:background="#00FFFFFF"
             android:src="@drawable/down_btn" />
     </LinearLayout>

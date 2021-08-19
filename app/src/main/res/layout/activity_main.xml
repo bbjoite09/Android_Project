@@ -4,61 +4,76 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_total_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="320dp"
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/editText"-->
+        <!--            android:layout_width="350dp"-->
+        <!--            android:layout_height="37dp"-->
+        <!--            android:layout_alignParentLeft="true"-->
+        <!--            android:layout_alignParentTop="true"-->
+        <!--            android:layout_marginStart="20dp"-->
+        <!--            android:layout_marginTop="22dp"-->
+        <!--            android:layout_marginEnd="20dp"-->
+        <!--            android:background="@drawable/search_bar_bg"-->
+        <!--            android:hint="@string/step_search"-->
+        <!--            android:inputType="text"-->
+        <!--            android:paddingLeft="40dp"-->
+        <!--            android:textColorHint="#9C9C9C"-->
+        <!--            android:textSize="14dp"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="1.0"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/searchButton"-->
+        <!--            android:layout_width="18dp"-->
+        <!--            android:layout_height="17.98dp"-->
+
+        <!--            android:layout_alignParentLeft="true"-->
+        <!--            android:layout_alignParentTop="true"-->
+        <!--            android:layout_alignParentRight="true"-->
+        <!--            android:layout_alignParentBottom="true"-->
+
+        <!--            android:layout_marginStart="10dp"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:layout_marginTop="9dp"-->
+        <!--            android:background="#00FFFFFF"-->
+        <!--            android:hapticFeedbackEnabled="false"-->
+        <!--            android:scaleType="fitXY"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/editText"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/editText"-->
+        <!--            app:srcCompat="@drawable/coolicon"-->
+        <!--            tools:ignore="VectorDrawableCompat" />-->
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="350dp"
             android:layout_height="37dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/search_bar_bg"
-            android:hint="@string/step_search"
-            android:inputType="text"
-            android:paddingLeft="40dp"
-            android:textColorHint="#9C9C9C"
-            android:textSize="14dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="15dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/searchButton"
-            android:layout_width="18dp"
-            android:layout_height="17.98dp"
-
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="9dp"
-            android:background="#00FFFFFF"
-            android:hapticFeedbackEnabled="false"
-            android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="@id/editText"
-            app:layout_constraintTop_toTopOf="@+id/editText"
-            app:srcCompat="@drawable/coolicon"
-            tools:ignore="VectorDrawableCompat" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/search_bar_bg"
+            app:defaultQueryHint="@string/step_search"
+            android:theme="@style/AppSearchView"
+            app:searchIcon="@drawable/search_icon"
+            />
 
         <View
             android:id="@+id/divider"
-            android:layout_width="320dp"
+            android:layout_width="380dp"
             android:layout_height="1dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
@@ -67,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
         <ImageView
             android:id="@+id/back_btn_main"
@@ -76,7 +91,7 @@
             android:layout_marginStart="3dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="11dp"
-            app:layout_constraintEnd_toStartOf="@+id/editText"
+            app:layout_constraintEnd_toStartOf="@+id/searchView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/left_icon" />

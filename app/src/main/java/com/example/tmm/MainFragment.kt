@@ -1,13 +1,21 @@
 package com.example.tmm
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_main.*
+import java.lang.reflect.Array.newInstance
+import javax.xml.xpath.XPathFactory.newInstance
 
 class MainFragment: Fragment() {
     // RecyclerView.adapter에 지정할 Adapter
@@ -22,6 +30,10 @@ class MainFragment: Fragment() {
 //                startActivity(Intent(activity, TmmInfoActivity::class.java))
 //            }
 //        });
+
+//        info_button.setOnClickListener {
+//            navController.navigate(R.id.action_mainFragment_to_tmminfoFragment)
+//        }
 
         return view
     }

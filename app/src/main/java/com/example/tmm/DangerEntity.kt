@@ -8,4 +8,6 @@ import androidx.room.PrimaryKey
 data class DangerEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Long?,
-    var memo: String = ""){}
+    var lineNum: Int,
+    val stationName: String
+    ){}
